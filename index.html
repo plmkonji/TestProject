@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ff5fa2" />
+  <title>Ellen Is Wanted!</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&display=swap');
+
+    :root {
+      --pink: #ff4f9a;
+      --purple: #8d5cff;
+      --yellow: #ffe46b;
+      --ink: #3d3153;
+      --skin: #ffd7bc;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      color: var(--ink);
+      font-family: "Baloo 2", system-ui, sans-serif;
+      background:
+        radial-gradient(circle at 18% 20%, #fff4a8 0 5%, transparent 6%),
+        radial-gradient(circle at 82% 16%, #ffc6e2 0 6%, transparent 7%),
+        linear-gradient(145deg, #fff5fb 0%, #e7ddff 52%, #ccefff 100%);
+    }
+
+    .sparkles,
+    .sparkles::before,
+    .sparkles::after {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      content: "";
+      background-image:
+        radial-gradient(circle, #fff 0 3px, transparent 4px),
+        radial-gradient(circle, #ffdb4d 0 4px, transparent 5px);
+      background-position: 12% 30%, 88% 72%;
+      background-size: 170px 170px, 230px 230px;
+      animation: drift 8s linear infinite;
+      opacity: .75;
+    }
+
+    .sparkles::before { transform: rotate(40deg); }
+    .sparkles::after { transform: rotate(-35deg); animation-direction: reverse; }
+
+    main {
+      position: relative;
+      z-index: 1;
+      width: min(92vw, 760px);
+      padding: clamp(26px, 5vw, 52px) 24px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(3rem, 11vw, 7rem);
+      line-height: .92;
+      letter-spacing: -.045em;
+      color: white;
+      -webkit-text-stroke: clamp(2px, .4vw, 4px) var(--ink);
+      paint-order: stroke fill;
+      text-shadow:
+        0 7px 0 var(--pink),
+        0 12px 0 var(--purple),
+        0 18px 24px rgba(62, 42, 97, .25);
+      animation: lightUp 1s steps(1, end) infinite, bounce 2s ease-in-out infinite;
+    }
+
+    .girl {
+      position: relative;
+      width: 220px;
+      height: 300px;
+      margin: 16px auto 0;
+      filter: drop-shadow(0 14px 10px rgba(61, 49, 83, .18));
+    }
+
+    .head {
+      position: absolute;
+      top: 18px;
+      left: 72px;
+      width: 78px;
+      height: 78px;
+      border: 7px solid var(--ink);
+      border-radius: 50%;
+      background: var(--skin);
+      z-index: 3;
+    }
+
+    .hair {
+      position: absolute;
+      top: 7px;
+      left: 61px;
+      width: 101px;
+      height: 67px;
+      border-radius: 52px 52px 26px 26px;
+      background: #7b4b2a;
+      transform: rotate(-3deg);
+      z-index: 2;
+    }
+
+    .hair::before,
+    .hair::after {
+      content: "";
+      position: absolute;
+      top: 36px;
+      width: 22px;
+      height: 72px;
+      background: #7b4b2a;
+      border-radius: 50%;
+    }
+
+    .hair::before { left: 2px; transform: rotate(10deg); }
+    .hair::after { right: 2px; transform: rotate(-10deg); }
+
+    .eye {
+      position: absolute;
+      top: 31px;
+      width: 8px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--ink);
+    }
+
+    .eye.left { left: 19px; }
+    .eye.right { right: 19px; }
+
+    .mouth {
+      position: absolute;
+      left: 25px;
+      top: 49px;
+      width: 28px;
+      height: 13px;
+      border-bottom: 5px solid var(--pink);
+      border-radius: 0 0 50% 50%;
+    }
+
+    .dress {
+      position: absolute;
+      top: 105px;
+      left: 64px;
+      width: 94px;
+      height: 116px;
+      clip-path: polygon(31% 0, 69% 0, 100% 100%, 0 100%);
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      border-radius: 18px;
+      z-index: 2;
+    }
+
+    .neck {
+      position: absolute;
+      top: 91px;
+      left: 103px;
+      width: 18px;
+      height: 24px;
+      border-radius: 8px;
+      background: var(--skin);
+    }
+
+    .arm {
+      position: absolute;
+      top: 118px;
+      width: 10px;
+      height: 96px;
+      border-radius: 8px;
+      background: var(--ink);
+      transform-origin: 50% 8px;
+      z-index: 1;
+    }
+
+    .arm.left { left: 70px; transform: rotate(22deg); }
+
+    .arm.wave {
+      left: 145px;
+      animation: wave .65s ease-in-out infinite alternate;
+    }
+
+    .hand {
+      position: absolute;
+      left: -5px;
+      bottom: -9px;
+      width: 20px;
+      height: 20px;
+      border: 5px solid var(--ink);
+      border-radius: 50%;
+      background: var(--skin);
+    }
+
+    .leg {
+      position: absolute;
+      top: 211px;
+      width: 10px;
+      height: 76px;
+      border-radius: 8px;
+      background: var(--ink);
+      transform-origin: top center;
+    }
+
+    .leg.left { left: 91px; transform: rotate(7deg); }
+    .leg.right { left: 123px; transform: rotate(-7deg); }
+
+    .shoe {
+      position: absolute;
+      bottom: -2px;
+      left: -9px;
+      width: 31px;
+      height: 14px;
+      border-radius: 12px 12px 5px 5px;
+      background: var(--pink);
+    }
+
+    .heart {
+      position: absolute;
+      top: 76px;
+      right: 8px;
+      font-size: 38px;
+      animation: floatHeart 1.2s ease-in-out infinite;
+    }
+
+    .ground {
+      width: 190px;
+      height: 18px;
+      margin: -4px auto 0;
+      border-radius: 50%;
+      background: rgba(61, 49, 83, .14);
+    }
+
+    @keyframes lightUp {
+      0%, 49% {
+        color: #fff;
+        text-shadow: 0 7px 0 var(--pink), 0 12px 0 var(--purple), 0 0 18px #fff, 0 0 42px var(--yellow);
+      }
+      50%, 100% {
+        color: var(--yellow);
+        text-shadow: 0 7px 0 var(--purple), 0 12px 0 var(--pink), 0 0 24px #fff, 0 0 54px var(--pink);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0) rotate(-1deg); }
+      50% { transform: translateY(-8px) rotate(1deg); }
+    }
+
+    @keyframes wave {
+      from { transform: rotate(-128deg); }
+      to { transform: rotate(-168deg); }
+    }
+
+    @keyframes floatHeart {
+      0%, 100% { transform: translateY(2px) rotate(-8deg) scale(.9); }
+      50% { transform: translateY(-12px) rotate(8deg) scale(1.12); }
+    }
+
+    @keyframes drift {
+      to { background-position: 182% 130%, -142% -130%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: 1ms !important; animation-iteration-count: 1 !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sparkles" aria-hidden="true"></div>
+  <main>
+    <h1>Ellen Is<br />Wanted!</h1>
+    <div class="girl" role="img" aria-label="A cute stick figure girl waving">
+      <div class="hair"></div>
+      <div class="head">
+        <span class="eye left"></span>
+        <span class="eye right"></span>
+        <span class="mouth"></span>
+      </div>
+      <div class="neck"></div>
+      <div class="dress"></div>
+      <div class="arm left"><span class="hand"></span></div>
+      <div class="arm wave"><span class="hand"></span></div>
+      <div class="leg left"><span class="shoe"></span></div>
+      <div class="leg right"><span class="shoe"></span></div>
+      <div class="heart">💖</div>
+    </div>
+    <div class="ground" aria-hidden="true"></div>
+  </main>
+</body>
+</html>
