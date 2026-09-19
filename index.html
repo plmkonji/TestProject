@@ -154,6 +154,35 @@
       filter: drop-shadow(0 5px 4px rgba(61,49,83,.15));
     }
 
+
+    .phrase {
+      position: absolute;
+      left: var(--x);
+      bottom: -80px;
+      max-width: 190px;
+      padding: 8px 15px;
+      color: var(--ink);
+      font-size: clamp(1rem, 2.6vw, 1.45rem);
+      font-weight: 800;
+      line-height: 1;
+      white-space: nowrap;
+      border: 3px solid rgba(61,49,83,.7);
+      border-radius: 999px;
+      background: var(--bubble);
+      box-shadow: 0 6px 0 rgba(61,49,83,.14), 0 10px 20px rgba(61,49,83,.12);
+      opacity: 0;
+      animation: phraseRise var(--speed) linear infinite;
+      animation-delay: var(--delay);
+    }
+
+    @keyframes phraseRise {
+      0% { transform: translate3d(0,0,0) rotate(-5deg) scale(.82); opacity: 0; }
+      10% { opacity: .88; }
+      45% { transform: translate3d(var(--drift),-55vh,0) rotate(4deg) scale(1); opacity: .88; }
+      90% { opacity: .82; }
+      100% { transform: translate3d(calc(var(--drift) * -.5),-120vh,0) rotate(-4deg) scale(.88); opacity: 0; }
+    }
+
     .shooting-star {
       position: absolute;
       top: -30px;
@@ -445,6 +474,12 @@
     <div class="floater" style="--x:34%;--size:27px;--speed:13s;--delay:-9s">⭐</div>
     <div class="floater" style="--x:64%;--size:31px;--speed:12s;--delay:-2s">🌸</div>
     <div class="floater" style="--x:91%;--size:34px;--speed:15s;--delay:-11s">🦋</div>
+    <div class="phrase" style="--x:5%;--bubble:#ffc9df;--speed:14s;--delay:-2s;--drift:28px">Nickinor</div>
+    <div class="phrase" style="--x:68%;--bubble:#ffe898;--speed:17s;--delay:-9s;--drift:-34px">Tucky man</div>
+    <div class="phrase" style="--x:13%;--bubble:#bceee7;--speed:19s;--delay:-13s;--drift:46px">Baby lock them doors</div>
+    <div class="phrase" style="--x:76%;--bubble:#d7c8ff;--speed:15s;--delay:-5s;--drift:-22px">Autism</div>
+    <div class="phrase" style="--x:38%;--bubble:#c9e8ff;--speed:18s;--delay:-16s;--drift:31px">ADHD</div>
+    <div class="phrase" style="--x:56%;--bubble:#fff0b8;--speed:13s;--delay:-7s;--drift:-38px">Okay</div>
     <div class="shooting-star"></div>
   </div>
   <main>
