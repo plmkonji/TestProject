@@ -96,6 +96,7 @@
     .cloud.three { top: 81%; left: -150px; transform: scale(.9); animation-duration: 21s; animation-delay: -4s; opacity: .62; }
 
     .rainbow {
+      cursor: pointer;
       position: absolute;
       left: -75px;
       bottom: -75px;
@@ -105,6 +106,24 @@
       background: conic-gradient(from 0deg, #ff5d8f, #ff5d8f 8%, #ffd166 8% 16%, #69db7c 16% 24%, #4dabf7 24% 32%, #9b5de5 32% 40%, transparent 40% 100%);
       opacity: .7;
       animation: rainbowRock 4s ease-in-out infinite;
+    }
+
+    .rainbow::after {
+      content: "Tap the rainbow for fun pictures!";
+      position: absolute;
+      left: 70px;
+      top: 30px;
+      width: 150px;
+      padding: 7px 10px;
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.1;
+      text-align: center;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: white;
+      box-shadow: 0 4px 0 rgba(61,49,83,.16);
     }
 
     .balloon {
@@ -741,7 +760,7 @@
     <div class="cloud one"></div>
     <div class="cloud two"></div>
     <div class="cloud three"></div>
-    <div class="rainbow"></div>
+    <div class="rainbow" role="link" tabindex="0" aria-label="Open fun pictures gallery" onclick="window.location.href='gallery.html'" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href='gallery.html'}"></div>
     <div class="balloon b1"></div>
     <div class="balloon b2"></div>
     <div class="balloon b3"></div>
