@@ -417,6 +417,7 @@
 
 
     .dog {
+      cursor: pointer;
       position: absolute;
       top: 166px;
       left: 164px;
@@ -426,6 +427,29 @@
       transform-origin: bottom center;
       animation: dogBounce 1.8s ease-in-out infinite;
       filter: drop-shadow(0 10px 7px rgba(61,49,83,.18));
+    }
+
+    .dog::after {
+      content: "Tap me for Portland fun!";
+      position: absolute;
+      left: -26px;
+      top: -34px;
+      width: max-content;
+      padding: 6px 10px;
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: white;
+      box-shadow: 0 4px 0 rgba(61,49,83,.16);
+      animation: hintPop 2.2s ease-in-out infinite;
+    }
+
+    @keyframes hintPop {
+      0%, 100% { transform: translateY(0) scale(.96); }
+      50% { transform: translateY(-5px) scale(1.03); }
     }
 
     .dog-body {
@@ -750,7 +774,7 @@
       <div class="leg left"><span class="shoe"></span></div>
       <div class="leg right"><span class="shoe"></span></div>
       <div class="heart">💖</div>
-      <div class="dog" role="img" aria-label="A happy black and tan dog with a blue collar wagging its tail">
+      <div class="dog" role="link" tabindex="0" aria-label="Open fun Portland events" onclick="window.location.href='events.html'" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href='events.html'}">
         <div class="dog-tail"></div>
         <div class="dog-body"></div>
         <div class="dog-chest"></div>
