@@ -97,6 +97,10 @@
 
     .rainbow {
       cursor: pointer;
+      pointer-events: auto;
+      z-index: 5;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
       position: absolute;
       left: -75px;
       bottom: -75px;
@@ -760,7 +764,7 @@
     <div class="cloud one"></div>
     <div class="cloud two"></div>
     <div class="cloud three"></div>
-    <div class="rainbow" role="link" tabindex="0" aria-label="Open fun pictures gallery" onclick="window.location.href='gallery.html'" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href='gallery.html'}"></div>
+    <a class="rainbow" href="gallery.html" aria-label="Open fun pictures gallery"></a>
     <div class="balloon b1"></div>
     <div class="balloon b2"></div>
     <div class="balloon b3"></div>
