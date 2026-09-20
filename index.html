@@ -415,6 +415,258 @@
       animation: floatHeart 1.2s ease-in-out infinite;
     }
 
+
+    .dog {
+      position: absolute;
+      top: 166px;
+      left: 164px;
+      width: 150px;
+      height: 128px;
+      z-index: 4;
+      transform-origin: bottom center;
+      animation: dogBounce 1.8s ease-in-out infinite;
+      filter: drop-shadow(0 10px 7px rgba(61,49,83,.18));
+    }
+
+    .dog-body {
+      position: absolute;
+      left: 27px;
+      top: 48px;
+      width: 103px;
+      height: 62px;
+      border: 5px solid var(--ink);
+      border-radius: 52% 48% 43% 48%;
+      background: linear-gradient(145deg, #25242b 0%, #09090c 72%);
+    }
+
+    .dog-chest {
+      position: absolute;
+      left: 30px;
+      top: 69px;
+      width: 31px;
+      height: 34px;
+      border-radius: 48%;
+      background: #bd8149;
+      transform: rotate(-14deg);
+      opacity: .88;
+    }
+
+    .dog-head {
+      position: absolute;
+      left: 4px;
+      top: 19px;
+      width: 72px;
+      height: 67px;
+      border: 5px solid var(--ink);
+      border-radius: 46% 51% 48% 52%;
+      background: linear-gradient(145deg, #29282e, #09090c 70%);
+      transform-origin: 60% 80%;
+      animation: dogTilt 3.6s ease-in-out infinite;
+      z-index: 5;
+    }
+
+    .dog-ear {
+      position: absolute;
+      top: -14px;
+      width: 29px;
+      height: 43px;
+      border: 5px solid var(--ink);
+      background: #15151a;
+      z-index: -1;
+    }
+
+    .dog-ear.left {
+      left: -12px;
+      border-radius: 70% 22% 55% 35%;
+      transform: rotate(-28deg);
+      animation: earFlop 2.4s ease-in-out infinite;
+    }
+
+    .dog-ear.right {
+      right: -10px;
+      border-radius: 22% 70% 35% 55%;
+      transform: rotate(28deg);
+      animation: earFlop 2.4s .2s ease-in-out infinite reverse;
+    }
+
+    .dog-brow {
+      position: absolute;
+      top: 18px;
+      width: 12px;
+      height: 8px;
+      border-radius: 50%;
+      background: #c58a50;
+    }
+
+    .dog-brow.left { left: 13px; transform: rotate(10deg); }
+    .dog-brow.right { right: 13px; transform: rotate(-10deg); }
+
+    .dog-eye {
+      position: absolute;
+      top: 29px;
+      width: 7px;
+      height: 9px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: inset 0 -4px 0 #4b2b19;
+      animation: dogBlink 4s infinite;
+    }
+
+    .dog-eye.left { left: 17px; }
+    .dog-eye.right { right: 17px; }
+
+    .dog-muzzle {
+      position: absolute;
+      left: 17px;
+      bottom: 4px;
+      width: 41px;
+      height: 25px;
+      border-radius: 48% 48% 55% 55%;
+      background: #af7645;
+    }
+
+    .dog-nose {
+      position: absolute;
+      left: 13px;
+      top: 1px;
+      width: 16px;
+      height: 11px;
+      border-radius: 55% 55% 65% 65%;
+      background: #111116;
+    }
+
+    .dog-smile {
+      position: absolute;
+      left: 10px;
+      top: 12px;
+      width: 22px;
+      height: 8px;
+      border-bottom: 3px solid #3d251c;
+      border-radius: 50%;
+    }
+
+    .dog-tongue {
+      position: absolute;
+      left: 13px;
+      top: 17px;
+      width: 16px;
+      height: 19px;
+      border: 2px solid #7f3553;
+      border-radius: 4px 4px 10px 10px;
+      background: #ff7fa8;
+      transform-origin: top center;
+      animation: tonguePop 3s ease-in-out infinite;
+    }
+
+    .dog-collar {
+      position: absolute;
+      left: 17px;
+      top: 76px;
+      width: 58px;
+      height: 12px;
+      border: 3px solid var(--ink);
+      border-radius: 8px;
+      background: #2787e8;
+      transform: rotate(5deg);
+      z-index: 6;
+    }
+
+    .dog-tag {
+      position: absolute;
+      left: 37px;
+      top: 85px;
+      width: 16px;
+      height: 16px;
+      border: 3px solid var(--ink);
+      border-radius: 50%;
+      background: #52d8bd;
+      z-index: 7;
+    }
+
+    .dog-leg {
+      position: absolute;
+      top: 91px;
+      width: 20px;
+      height: 36px;
+      border: 4px solid var(--ink);
+      border-radius: 9px 9px 12px 12px;
+      background: linear-gradient(#17171b 0 37%, #c1884f 38%);
+      z-index: 3;
+    }
+
+    .dog-leg.front { left: 36px; }
+    .dog-leg.back { right: 23px; }
+
+    .dog-paw {
+      position: absolute;
+      left: -5px;
+      bottom: -4px;
+      width: 27px;
+      height: 13px;
+      border: 4px solid var(--ink);
+      border-radius: 50% 55% 42% 45%;
+      background: #c1884f;
+    }
+
+    .dog-tail {
+      position: absolute;
+      right: -19px;
+      top: 54px;
+      width: 62px;
+      height: 16px;
+      border: 5px solid var(--ink);
+      border-left: 0;
+      border-radius: 0 90% 20% 0;
+      background: #121217;
+      transform-origin: left center;
+      animation: tailWag .32s ease-in-out infinite alternate;
+      z-index: -1;
+    }
+
+    .dog-heart {
+      position: absolute;
+      right: -6px;
+      top: 7px;
+      font-size: 22px;
+      animation: floatHeart 1.4s .3s ease-in-out infinite;
+    }
+
+    @keyframes dogBounce {
+      0%, 100% { transform: translateY(0) rotate(-1deg); }
+      50% { transform: translateY(-5px) rotate(1deg); }
+    }
+
+    @keyframes dogTilt {
+      0%, 42%, 100% { transform: rotate(0); }
+      50%, 68% { transform: rotate(-9deg); }
+    }
+
+    @keyframes tailWag {
+      from { transform: rotate(-25deg); }
+      to { transform: rotate(24deg); }
+    }
+
+    @keyframes earFlop {
+      0%, 75%, 100% { translate: 0 0; }
+      82% { translate: 0 3px; }
+    }
+
+    @keyframes dogBlink {
+      0%, 44%, 48%, 100% { transform: scaleY(1); }
+      46% { transform: scaleY(.1); }
+    }
+
+    @keyframes tonguePop {
+      0%, 36%, 100% { transform: scaleY(.15); opacity: 0; }
+      42%, 75% { transform: scaleY(1); opacity: 1; }
+      82% { transform: scaleY(.15); opacity: 0; }
+    }
+
+    @media (max-width: 430px) {
+      .dog { left: 145px; transform: scale(.88); }
+      .ground { width: 275px; }
+    }
+
     .ground {
       width: 190px;
       height: 18px;
@@ -498,6 +750,29 @@
       <div class="leg left"><span class="shoe"></span></div>
       <div class="leg right"><span class="shoe"></span></div>
       <div class="heart">💖</div>
+      <div class="dog" role="img" aria-label="A happy black and tan dog with a blue collar wagging its tail">
+        <div class="dog-tail"></div>
+        <div class="dog-body"></div>
+        <div class="dog-chest"></div>
+        <div class="dog-head">
+          <span class="dog-ear left"></span>
+          <span class="dog-ear right"></span>
+          <span class="dog-brow left"></span>
+          <span class="dog-brow right"></span>
+          <span class="dog-eye left"></span>
+          <span class="dog-eye right"></span>
+          <span class="dog-muzzle">
+            <span class="dog-nose"></span>
+            <span class="dog-smile"></span>
+            <span class="dog-tongue"></span>
+          </span>
+        </div>
+        <div class="dog-collar"></div>
+        <div class="dog-tag"></div>
+        <div class="dog-leg front"><span class="dog-paw"></span></div>
+        <div class="dog-leg back"><span class="dog-paw"></span></div>
+        <div class="dog-heart">💙</div>
+      </div>
     </div>
     <div class="ground" aria-hidden="true"></div>
   </main>
