@@ -42,6 +42,32 @@
       display:inline-block; margin-top:12px; padding:5px 12px; border-radius:999px;
       background:white; border:2px solid var(--ink); font-size:.85rem; font-weight:800;
     }
+
+    .filters {
+      margin:0 auto 26px; padding:18px; border:4px solid var(--ink); border-radius:24px;
+      background:rgba(255,255,255,.88); box-shadow:0 7px 0 var(--ink);
+    }
+    .filter-title { margin:0 0 11px; font-size:1.12rem; font-weight:800; }
+    .filter-row { display:flex; flex-wrap:wrap; align-items:end; gap:10px; }
+    .date-field { display:grid; gap:4px; font-size:.78rem; font-weight:800; text-transform:uppercase; letter-spacing:.04em; }
+    input[type="date"] {
+      min-height:44px; padding:8px 12px; color:var(--ink); background:white;
+      border:3px solid var(--ink); border-radius:13px; font:700 1rem "Baloo 2",system-ui,sans-serif;
+    }
+    .filter-btn {
+      min-height:44px; padding:8px 14px; color:var(--ink); background:var(--button,#fff);
+      border:3px solid var(--ink); border-radius:13px; font:800 .95rem "Baloo 2",system-ui,sans-serif;
+      cursor:pointer; box-shadow:0 3px 0 var(--ink); transition:.15s transform,.15s box-shadow;
+    }
+    .filter-btn:active,.filter-btn.active { transform:translateY(3px); box-shadow:0 0 0 var(--ink); background:var(--purple); color:white; }
+    .filter-status { margin:13px 0 0; font-weight:800; color:#594878; }
+    .card[hidden] { display:none; }
+    .empty {
+      display:none; grid-column:1/-1; padding:30px; text-align:center; font-size:1.3rem;
+      font-weight:800; background:white; border:4px dashed var(--purple); border-radius:24px;
+    }
+    .empty.show { display:block; }
+
     .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
     .card {
       position:relative; overflow:hidden; padding:24px; min-height:245px;
@@ -84,8 +110,21 @@
       <p class="subtitle">A cheerful shortlist of things happening now and coming soon around Portland.</p>
       <span class="updated">Updated September 20, 2026</span>
     </header>
+    <section class="filters" aria-label="Filter events by date">
+      <p class="filter-title">📅 When do you want to have fun?</p>
+      <div class="filter-row">
+        <label class="date-field">Pick a date
+          <input id="eventDate" type="date" min="2026-09-19" max="2026-12-31" />
+        </label>
+        <button class="filter-btn active" data-filter="all" style="--button:#fff">All events</button>
+        <button class="filter-btn" data-filter="today" style="--button:#ffc8dc">Today</button>
+        <button class="filter-btn" data-filter="week" style="--button:#bfeee4">Next 7 days</button>
+        <button class="filter-btn" data-filter="october" style="--button:#ffe3a1">October</button>
+      </div>
+      <p class="filter-status" id="filterStatus" aria-live="polite">Showing all events and live guides.</p>
+    </section>
     <main class="grid">
-      <article class="card" style="--card:#ffe3a1" data-emoji="🏮">
+      <article class="card" data-start="2026-09-20" data-end="2026-09-20" style="--card:#ffe3a1" data-emoji="🏮">
         <span class="tag">Happening tonight</span>
         <h2>Asian Mid-Autumn &amp; Harvest Festival Gala</h2>
         <div class="meta">September 20 · 7:00 PM · Portland’5</div>
@@ -93,7 +132,7 @@
         <a class="go" href="https://www.portland5.com/events" target="_blank" rel="noopener">Event details →</a>
       </article>
 
-      <article class="card" style="--card:#d8c8ff" data-emoji="🎻">
+      <article class="card" data-start="2026-09-19" data-end="2026-09-20" style="--card:#d8c8ff" data-emoji="🎻">
         <span class="tag">Live performance</span>
         <h2>Piazzolla &amp; Edna Vázquez</h2>
         <div class="meta">September 19–20 · Portland’5</div>
@@ -101,7 +140,7 @@
         <a class="go" href="https://www.portland5.com/events" target="_blank" rel="noopener">See Portland’5 events →</a>
       </article>
 
-      <article class="card" style="--card:#bfeee4" data-emoji="🏃">
+      <article class="card" data-start="2026-10-04" data-end="2026-10-04" style="--card:#bfeee4" data-emoji="🏃">
         <span class="tag">Coming soon</span>
         <h2>Portland Marathon Weekend</h2>
         <div class="meta">October 4 · Marathon, half marathon &amp; 10K</div>
@@ -109,7 +148,7 @@
         <a class="go" href="https://www.portlandmarathon.com/" target="_blank" rel="noopener">Official race site →</a>
       </article>
 
-      <article class="card" style="--card:#ffc8dc" data-emoji="🎃">
+      <article class="card" data-start="2026-10-01" data-end="2026-10-31" style="--card:#ffc8dc" data-emoji="🎃">
         <span class="tag">October preview</span>
         <h2>Spooky &amp; Cozy Fall Events</h2>
         <div class="meta">October · Around Portland</div>
@@ -117,7 +156,7 @@
         <a class="go" href="https://www.travelportland.com/events/october/" target="_blank" rel="noopener">Explore October →</a>
       </article>
 
-      <article class="card" style="--card:#c9eaff" data-emoji="✨">
+      <article class="card" data-start="2026-09-20" data-end="2026-12-31" data-live="true" style="--card:#c9eaff" data-emoji="✨">
         <span class="tag">Live list</span>
         <h2>What’s Happening Today</h2>
         <div class="meta">Concerts, exhibits, tours &amp; pop-ups</div>
@@ -125,15 +164,75 @@
         <a class="go" href="https://www.travelportland.com/events/things-to-do-in-portland-today/" target="_blank" rel="noopener">See today’s picks →</a>
       </article>
 
-      <article class="card" style="--card:#fff0aa" data-emoji="🎉">
+      <article class="card" data-start="2026-09-20" data-end="2026-12-31" data-live="true" style="--card:#fff0aa" data-emoji="🎉">
         <span class="tag">Plan ahead</span>
         <h2>This Weekend in Portland</h2>
         <div class="meta">Festivals, shows, markets &amp; more</div>
         <p>A quick launchpad for whichever Portland weekend is coming up next.</p>
         <a class="go" href="https://www.travelportland.com/events/things-to-do-in-portland-this-weekend/" target="_blank" rel="noopener">Browse the weekend →</a>
       </article>
+      <div class="empty" id="emptyState">Nothing is listed for that date yet — try another day! 🌲</div>
     </main>
     <div class="note">Event details can change, so use each event’s link to confirm times, availability and tickets before heading out.</div>
   </div>
+  <script>
+    const cards = [...document.querySelectorAll(".card")];
+    const dateInput = document.getElementById("eventDate");
+    const status = document.getElementById("filterStatus");
+    const empty = document.getElementById("emptyState");
+    const buttons = [...document.querySelectorAll("[data-filter]")];
+
+    function localISO(date) {
+      const y = date.getFullYear();
+      const m = String(date.getMonth() + 1).padStart(2, "0");
+      const d = String(date.getDate()).padStart(2, "0");
+      return `${y}-${m}-${d}`;
+    }
+
+    function showRange(from, to, label) {
+      let visible = 0;
+      cards.forEach(card => {
+        const matches = card.dataset.start <= to && card.dataset.end >= from;
+        card.hidden = !matches;
+        if (matches) visible++;
+      });
+      empty.classList.toggle("show", visible === 0);
+      status.textContent = `${label} · ${visible} ${visible === 1 ? "pick" : "picks"} shown.`;
+    }
+
+    function activate(name) {
+      buttons.forEach(button => button.classList.toggle("active", button.dataset.filter === name));
+    }
+
+    dateInput.addEventListener("change", () => {
+      if (!dateInput.value) return;
+      activate("");
+      const label = new Date(dateInput.value + "T12:00:00").toLocaleDateString(undefined, {weekday:"long", month:"long", day:"numeric"});
+      showRange(dateInput.value, dateInput.value, label);
+    });
+
+    buttons.forEach(button => button.addEventListener("click", () => {
+      const mode = button.dataset.filter;
+      activate(mode);
+      dateInput.value = "";
+      if (mode === "all") {
+        cards.forEach(card => card.hidden = false);
+        empty.classList.remove("show");
+        status.textContent = "Showing all events and live guides.";
+        return;
+      }
+      const today = new Date();
+      if (mode === "today") {
+        const iso = localISO(today);
+        showRange(iso, iso, "Today");
+      } else if (mode === "week") {
+        const end = new Date(today);
+        end.setDate(end.getDate() + 6);
+        showRange(localISO(today), localISO(end), "Next 7 days");
+      } else if (mode === "october") {
+        showRange("2026-10-01", "2026-10-31", "October 2026");
+      }
+    }));
+  </script>
 </body>
 </html>
