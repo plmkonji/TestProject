@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ff5f9e" />
+  <title>Our Fun Pictures</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&display=swap');
+    :root { --ink:#36284f; --pink:#ff5f9e; --purple:#7956dc; --yellow:#ffe377; --mint:#66dfc4; }
+    * { box-sizing:border-box; }
+    body {
+      margin:0; min-height:100vh; color:var(--ink); font-family:"Baloo 2",system-ui,sans-serif;
+      background:
+        radial-gradient(circle at 10% 8%,#ffe9a4 0 5%,transparent 5.5%),
+        radial-gradient(circle at 88% 12%,#ffc9e0 0 6%,transparent 6.5%),
+        linear-gradient(145deg,#fff8fc,#ede6ff 55%,#dbf5ff);
+    }
+    body::before {
+      content:""; position:fixed; inset:0; pointer-events:none; opacity:.55;
+      background-image:radial-gradient(circle,#fff 0 3px,transparent 4px);
+      background-size:100px 100px; animation:sparkle 12s linear infinite;
+    }
+    .wrap { width:min(1100px,92vw); margin:auto; padding:28px 0 80px; position:relative; }
+    .back {
+      display:inline-flex; padding:10px 18px; color:white; text-decoration:none; font-weight:800;
+      background:var(--purple); border:3px solid var(--ink); border-radius:999px; box-shadow:0 5px 0 var(--ink);
+    }
+    header { text-align:center; padding:22px 0 34px; }
+    h1 {
+      margin:0; font-size:clamp(3rem,10vw,6.5rem); line-height:.9; color:white;
+      -webkit-text-stroke:3px var(--ink); paint-order:stroke fill;
+      text-shadow:0 7px 0 var(--pink),0 12px 0 var(--purple);
+      animation:bob 2s ease-in-out infinite;
+    }
+    .subtitle { margin:24px auto 0; max-width:620px; font-size:1.2rem; font-weight:700; }
+    .gallery { columns:3 260px; column-gap:22px; }
+    .photo {
+      position:relative; break-inside:avoid; margin:0 0 22px; padding:10px 10px 42px;
+      border:4px solid var(--ink); border-radius:18px; background:var(--frame);
+      box-shadow:0 9px 0 var(--ink),0 18px 28px rgba(54,40,79,.15);
+      transform:rotate(var(--tilt)); cursor:pointer; transition:.22s transform,.22s box-shadow;
+    }
+    .photo:hover,.photo:focus-visible { transform:rotate(0) translateY(-6px) scale(1.015); box-shadow:0 14px 0 var(--ink),0 25px 35px rgba(54,40,79,.2); outline:none; }
+    .photo img { display:block; width:100%; height:auto; border:3px solid var(--ink); border-radius:10px; }
+    .photo figcaption {
+      position:absolute; left:12px; right:12px; bottom:8px; text-align:center;
+      font-size:1rem; font-weight:800; line-height:1.1;
+    }
+    .sticker { position:absolute; right:-13px; top:-18px; z-index:2; font-size:38px; filter:drop-shadow(0 3px 0 white); }
+    dialog {
+      width:min(94vw,1000px); max-height:94vh; padding:0; overflow:hidden;
+      border:4px solid white; border-radius:22px; background:#17131f; box-shadow:0 22px 80px #0009;
+    }
+    dialog::backdrop { background:rgba(25,17,40,.86); backdrop-filter:blur(5px); }
+    .lightbox { display:grid; place-items:center; min-height:50vh; max-height:94vh; }
+    .lightbox img { display:block; max-width:100%; max-height:84vh; object-fit:contain; }
+    .close,.nav {
+      position:absolute; z-index:3; border:3px solid var(--ink); color:var(--ink); background:white;
+      font:800 1.2rem "Baloo 2",sans-serif; cursor:pointer; box-shadow:0 4px 0 var(--ink);
+    }
+    .close { top:12px; right:12px; width:45px; height:45px; border-radius:50%; }
+    .nav { top:50%; translate:0 -50%; width:48px; height:58px; border-radius:14px; }
+    .prev { left:12px; } .next { right:12px; }
+    .light-caption {
+      position:absolute; left:50%; bottom:10px; translate:-50% 0; width:max-content; max-width:80%;
+      padding:6px 15px; border-radius:999px; color:var(--ink); background:white; font-weight:800;
+    }
+    @keyframes bob { 50% { transform:translateY(-7px) rotate(1deg); } }
+    @keyframes sparkle { to { background-position:100px 200px; } }
+    @media(max-width:620px) { .gallery { columns:2 140px; column-gap:14px; } .photo { margin-bottom:16px; padding:7px 7px 35px; } .sticker { font-size:29px; } }
+    @media(prefers-reduced-motion:reduce) { * { animation:none!important; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="index.html">← Back to Ellen &amp; the pups</a>
+    <header>
+      <h1>Fun<br>Pictures!</h1>
+      <p class="subtitle">Adventures, ridiculous selfies, sunshine, snow, and a whole lot of good memories. Tap any picture to make it big!</p>
+    </header>
+    <main class="gallery">
+      <figure class="photo" tabindex="0" style="--frame:#ffc9df;--tilt:-2deg"><span class="sticker">🎰</span><img src="images/gallery/01-IMG_7712.jpg" alt="Nick and Ellen taking a playful nighttime selfie in Las Vegas"><figcaption>Vegas energy ✨</figcaption></figure>
+      <figure class="photo" tabindex="0" style="--frame:#ffe699;--tilt:2deg"><span class="sticker">🌼</span><img src="images/gallery/02-IMG_5483.jpg" alt="Nick and Ellen laughing together in a flower garden"><figcaption>Garden party laughs</figcaption></figure>
+      <figure class="photo" tabindex="0" style="--frame:#ccecff;--tilt:-1deg"><span class="sticker">💙</span><img src="images/gallery/03-IMG_5362.jpg" alt="Nick and Ellen smiling together outdoors"><figcaption>Blue skies &amp; big smiles</figcaption></figure>
+      <figure class="photo" tabindex="0" style="--frame:#bfeee4;--tilt:2.5deg"><span class="sticker">🌊</span><img src="images/gallery/04-IMG_6395.jpg" alt="Nick and Ellen standing together on dramatic ocean cliffs in Hawaii"><figcaption>Hawaii adventures</figcaption></figure>
+      <figure class="photo" tabindex="0" style="--frame:#ffd3a8;--tilt:-2deg"><span class="sticker">🚙</span><img src="images/gallery/05-IMG_6305.jpg" alt="Nick and Ellen smiling inside an open-top Jeep"><figcaption>Jeep exploring</figcaption></figure>
+      <figure class="photo" tabindex="0" style="--frame:#ffe372;--tilt:1deg"><span class="sticker">🍯</span><img src="images/gallery/06-IMG_9248.jpg" alt="Nick and Ellen reflected together in a glowing honeycomb mirror"><figcaption>Sweet as honey</figcaption></figure>
+      <figure class="photo" tabindex="0" style="--frame:#ded0ff;--tilt:-2.5deg"><span class="sticker">⚾</span><img src="images/gallery/07-FullSizeRender.jpg" alt="Nick and Ellen taking a selfie at a Colorado Rockies baseball game"><figcaption>Ballpark silliness</figcaption></figure>
+      <figure class="photo" tabindex="0" style="--frame:#c8edff;--tilt:2deg"><span class="sticker">⛷️</span><img src="images/gallery/08-FullSizeRender.jpg" alt="Nick and Ellen skiing together at Mt. Hood"><figcaption>Mt. Hood snow day</figcaption></figure>
+      <figure class="photo" tabindex="0" style="--frame:#d7f1d0;--tilt:-1deg"><span class="sticker">❄️</span><img src="images/gallery/09-IMG_4436.jpg" alt="Nick and Ellen sitting on a bench made of skis in a winter scene"><figcaption>Winter wonderland</figcaption></figure>
+    </main>
+  </div>
+
+  <dialog id="viewer">
+    <div class="lightbox">
+      <button class="close" aria-label="Close picture">×</button>
+      <button class="nav prev" aria-label="Previous picture">‹</button>
+      <img id="bigPhoto" alt="">
+      <button class="nav next" aria-label="Next picture">›</button>
+      <div class="light-caption" id="bigCaption"></div>
+    </div>
+  </dialog>
+
+  <script>
+    const figures=[...document.querySelectorAll(".photo")];
+    const viewer=document.getElementById("viewer");
+    const big=document.getElementById("bigPhoto");
+    const caption=document.getElementById("bigCaption");
+    let current=0;
+    function show(index){
+      current=(index+figures.length)%figures.length;
+      const img=figures[current].querySelector("img");
+      big.src=img.src; big.alt=img.alt;
+      caption.textContent=figures[current].querySelector("figcaption").textContent;
+      if(!viewer.open) viewer.showModal();
+    }
+    figures.forEach((figure,index)=>{
+      figure.addEventListener("click",()=>show(index));
+      figure.addEventListener("keydown",event=>{if(event.key==="Enter"||event.key===" "){event.preventDefault();show(index)}});
+    });
+    document.querySelector(".close").addEventListener("click",()=>viewer.close());
+    document.querySelector(".prev").addEventListener("click",()=>show(current-1));
+    document.querySelector(".next").addEventListener("click",()=>show(current+1));
+    viewer.addEventListener("click",event=>{if(event.target===viewer) viewer.close()});
+    document.addEventListener("keydown",event=>{
+      if(!viewer.open) return;
+      if(event.key==="ArrowLeft") show(current-1);
+      if(event.key==="ArrowRight") show(current+1);
+    });
+  </script>
+</body>
+</html>
