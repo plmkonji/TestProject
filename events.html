@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#5636a8" />
+  <title>Portland Fun Finder</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&display=swap');
+    :root { --ink:#30254b; --purple:#6f4bd8; --pink:#ff5b9d; --mint:#61d8bd; --yellow:#ffe27a; }
+    * { box-sizing:border-box; }
+    body {
+      margin:0; min-height:100vh; color:var(--ink);
+      font-family:"Baloo 2",system-ui,sans-serif;
+      background:
+        radial-gradient(circle at 8% 8%,#ffe89c 0 4%,transparent 4.5%),
+        radial-gradient(circle at 90% 12%,#ffc5df 0 6%,transparent 6.5%),
+        linear-gradient(145deg,#fff8fb,#eee7ff 50%,#dff7ff);
+    }
+    body::before {
+      content:""; position:fixed; inset:0; pointer-events:none; opacity:.55;
+      background-image:radial-gradient(circle,#fff 0 3px,transparent 4px);
+      background-size:90px 90px; animation:drift 12s linear infinite;
+    }
+    .wrap { width:min(1080px,92vw); margin:auto; padding:26px 0 70px; position:relative; }
+    .back {
+      display:inline-flex; align-items:center; gap:8px; padding:10px 17px;
+      color:white; text-decoration:none; background:var(--purple); border:3px solid var(--ink);
+      border-radius:999px; box-shadow:0 5px 0 var(--ink); font-weight:800;
+      transition:.2s transform;
+    }
+    .back:active { transform:translateY(4px); box-shadow:0 1px 0 var(--ink); }
+    header { text-align:center; padding:22px 0 30px; }
+    h1 {
+      margin:0; font-size:clamp(2.8rem,10vw,6rem); line-height:.92; color:white;
+      -webkit-text-stroke:3px var(--ink); paint-order:stroke fill;
+      text-shadow:0 7px 0 var(--pink),0 12px 0 var(--purple);
+      animation:bob 2s ease-in-out infinite;
+    }
+    .subtitle { margin:22px auto 0; max-width:650px; font-size:1.18rem; font-weight:700; }
+    .updated {
+      display:inline-block; margin-top:12px; padding:5px 12px; border-radius:999px;
+      background:white; border:2px solid var(--ink); font-size:.85rem; font-weight:800;
+    }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+    .card {
+      position:relative; overflow:hidden; padding:24px; min-height:245px;
+      border:4px solid var(--ink); border-radius:28px; background:var(--card);
+      box-shadow:0 9px 0 var(--ink),0 18px 28px rgba(48,37,75,.14);
+      transition:.22s transform,.22s box-shadow;
+    }
+    .card:hover { transform:translateY(-5px) rotate(-.5deg); box-shadow:0 14px 0 var(--ink),0 24px 32px rgba(48,37,75,.16); }
+    .card::after { content:attr(data-emoji); position:absolute; right:-10px; bottom:-30px; font-size:100px; opacity:.19; transform:rotate(-8deg); }
+    .tag { display:inline-block; padding:5px 11px; border:2px solid var(--ink); border-radius:999px; background:white; font-size:.78rem; font-weight:800; text-transform:uppercase; letter-spacing:.05em; }
+    h2 { margin:15px 0 8px; font-size:1.8rem; line-height:1; }
+    .meta { font-weight:800; color:#594878; }
+    .card p { margin:9px 0 18px; line-height:1.35; }
+    .go {
+      position:relative; z-index:2; display:inline-flex; padding:9px 14px; color:white;
+      background:var(--ink); border-radius:12px; text-decoration:none; font-weight:800;
+    }
+    .note {
+      margin:34px auto 0; padding:18px 22px; max-width:760px; text-align:center;
+      background:white; border:3px dashed var(--purple); border-radius:22px; font-weight:700;
+    }
+    .pdx { position:fixed; right:3vw; top:3vh; font-size:38px; animation:spin 8s linear infinite; }
+    @keyframes bob { 50% { transform:translateY(-7px) rotate(1deg); } }
+    @keyframes drift { to { background-position:90px 180px; } }
+    @keyframes spin { 50% { transform:rotate(12deg) scale(1.15); } }
+    @media(max-width:720px) {
+      .grid { grid-template-columns:1fr; }
+      .card { min-height:0; }
+      .pdx { display:none; }
+    }
+    @media(prefers-reduced-motion:reduce) { * { animation:none!important; } }
+  </style>
+</head>
+<body>
+  <div class="pdx" aria-hidden="true">🌲🚲</div>
+  <div class="wrap">
+    <a class="back" href="index.html">← Back to Ellen &amp; the pups</a>
+    <header>
+      <h1>Portland<br>Fun Finder!</h1>
+      <p class="subtitle">A cheerful shortlist of things happening now and coming soon around Portland.</p>
+      <span class="updated">Updated September 20, 2026</span>
+    </header>
+    <main class="grid">
+      <article class="card" style="--card:#ffe3a1" data-emoji="🏮">
+        <span class="tag">Happening tonight</span>
+        <h2>Asian Mid-Autumn &amp; Harvest Festival Gala</h2>
+        <div class="meta">September 20 · 7:00 PM · Portland’5</div>
+        <p>Lantern-season celebration and cultural gala in downtown Portland.</p>
+        <a class="go" href="https://www.portland5.com/events" target="_blank" rel="noopener">Event details →</a>
+      </article>
+
+      <article class="card" style="--card:#d8c8ff" data-emoji="🎻">
+        <span class="tag">Live performance</span>
+        <h2>Piazzolla &amp; Edna Vázquez</h2>
+        <div class="meta">September 19–20 · Portland’5</div>
+        <p>A vibrant performance option for a music-filled night out.</p>
+        <a class="go" href="https://www.portland5.com/events" target="_blank" rel="noopener">See Portland’5 events →</a>
+      </article>
+
+      <article class="card" style="--card:#bfeee4" data-emoji="🏃">
+        <span class="tag">Coming soon</span>
+        <h2>Portland Marathon Weekend</h2>
+        <div class="meta">October 4 · Marathon, half marathon &amp; 10K</div>
+        <p>Run, volunteer, or just find a good spot to cheer as the races move through Portland.</p>
+        <a class="go" href="https://www.portlandmarathon.com/" target="_blank" rel="noopener">Official race site →</a>
+      </article>
+
+      <article class="card" style="--card:#ffc8dc" data-emoji="🎃">
+        <span class="tag">October preview</span>
+        <h2>Spooky &amp; Cozy Fall Events</h2>
+        <div class="meta">October · Around Portland</div>
+        <p>Giant pumpkins, film events, corn mazes, haunted houses and peak Portland fall weirdness.</p>
+        <a class="go" href="https://www.travelportland.com/events/october/" target="_blank" rel="noopener">Explore October →</a>
+      </article>
+
+      <article class="card" style="--card:#c9eaff" data-emoji="✨">
+        <span class="tag">Live list</span>
+        <h2>What’s Happening Today</h2>
+        <div class="meta">Concerts, exhibits, tours &amp; pop-ups</div>
+        <p>Use Travel Portland’s continually updated list when you want something spontaneous.</p>
+        <a class="go" href="https://www.travelportland.com/events/things-to-do-in-portland-today/" target="_blank" rel="noopener">See today’s picks →</a>
+      </article>
+
+      <article class="card" style="--card:#fff0aa" data-emoji="🎉">
+        <span class="tag">Plan ahead</span>
+        <h2>This Weekend in Portland</h2>
+        <div class="meta">Festivals, shows, markets &amp; more</div>
+        <p>A quick launchpad for whichever Portland weekend is coming up next.</p>
+        <a class="go" href="https://www.travelportland.com/events/things-to-do-in-portland-this-weekend/" target="_blank" rel="noopener">Browse the weekend →</a>
+      </article>
+    </main>
+    <div class="note">Event details can change, so use each event’s link to confirm times, availability and tickets before heading out.</div>
+  </div>
+</body>
+</html>
