@@ -711,7 +711,53 @@
 
     @media (max-width: 430px) {
       .dog { left: 145px; transform: scale(.88); }
-      .ground { width: 275px; }
+  
+
+    /* Little basketball scene tucked into the background */
+    .hoops-scene {
+      position: fixed;
+      z-index: 0;
+      right: clamp(8px, 5vw, 72px);
+      bottom: 18px;
+      width: 250px;
+      height: 205px;
+      pointer-events: none;
+      opacity: .82;
+      transform: scale(.92);
+      transform-origin: bottom right;
+    }
+    .hoops-ground { position:absolute; bottom:0; left:8px; width:230px; height:17px; border-radius:50%; background:rgba(61,49,83,.14); }
+    .hoop-pole { position:absolute; right:40px; bottom:13px; width:8px; height:140px; border-radius:8px; background:#725b89; }
+    .hoop-base { position:absolute; right:24px; bottom:5px; width:42px; height:12px; border-radius:50%; background:#725b89; }
+    .hoop-backboard { position:absolute; right:21px; top:18px; width:54px; height:39px; border:5px solid #725b89; border-radius:7px; background:rgba(255,255,255,.7); }
+    .hoop-rim { position:absolute; right:61px; top:52px; width:37px; height:7px; border:3px solid #ff765f; border-top:0; border-radius:0 0 50% 50%; }
+    .hoop-net { position:absolute; right:67px; top:59px; width:26px; height:32px; border:2px solid rgba(114,91,137,.7); border-top:0; clip-path:polygon(0 0,100% 0,78% 100%,22% 100%); background:repeating-linear-gradient(60deg,transparent 0 7px,rgba(114,91,137,.62) 7px 9px),repeating-linear-gradient(-60deg,transparent 0 7px,rgba(114,91,137,.62) 7px 9px); }
+    .hoops-player { position:absolute; left:49px; bottom:14px; width:92px; height:160px; animation:playerSway 2.8s ease-in-out infinite; }
+    .player-head { position:absolute; left:28px; top:5px; width:34px; height:34px; border:4px solid var(--ink); border-radius:50%; background:#f0bd98; }
+    .player-hair { position:absolute; left:27px; top:2px; width:37px; height:15px; border-radius:20px 20px 8px 8px; background:#49382f; }
+    .player-body { position:absolute; left:27px; top:41px; width:37px; height:49px; border:4px solid var(--ink); border-radius:10px 10px 6px 6px; background:#48a5e8; }
+    .player-arm { position:absolute; top:45px; left:19px; width:9px; height:54px; border-radius:9px; background:var(--ink); transform-origin:top center; transform:rotate(54deg); }
+    .player-arm.shot { left:59px; top:43px; height:62px; transform:rotate(-139deg); animation:shootArm 1.5s ease-in-out infinite; }
+    .player-leg { position:absolute; top:84px; left:34px; width:10px; height:58px; border-radius:9px; background:var(--ink); transform:rotate(8deg); }
+    .player-leg.back { left:52px; transform:rotate(-9deg); }
+    .player-shoe { position:absolute; bottom:-3px; left:-7px; width:25px; height:10px; border-radius:8px; background:#ff4f9a; }
+    .basketball { position:absolute; left:90px; top:48px; width:24px; height:24px; border:2px solid #713d22; border-radius:50%; background:#f18a35; animation:ballArc 1.5s ease-in-out infinite; }
+    .basketball::before,.basketball::after { content:""; position:absolute; inset:0; border-radius:50%; }
+    .basketball::before { border-left:2px solid #713d22; transform:rotate(35deg) scaleX(.55); }
+    .basketball::after { border-top:2px solid #713d22; transform:rotate(55deg) scaleY(.55); }
+    .court-dog { position:absolute; left:6px; bottom:12px; width:55px; height:42px; animation:dogBounce 1.8s ease-in-out infinite; }
+    .court-dog .body { position:absolute; left:12px; top:13px; width:37px; height:21px; border:3px solid var(--ink); border-radius:55% 48% 43% 48%; background:#c58a50; }
+    .court-dog .head { position:absolute; left:0; top:7px; width:24px; height:24px; border:3px solid var(--ink); border-radius:50%; background:#d6a46c; }
+    .court-dog .ear { position:absolute; left:-5px; top:0; width:10px; height:16px; border-radius:70%; background:#8b5937; transform:rotate(-25deg); }
+    .court-dog .tail { position:absolute; right:-7px; top:14px; width:18px; height:7px; border-top:4px solid var(--ink); border-radius:50%; transform:rotate(-35deg); }
+    .court-dog .legs { position:absolute; left:15px; top:28px; width:5px; height:13px; border-radius:4px; background:var(--ink); box-shadow:18px 0 var(--ink); }
+    @keyframes ballArc { 0%,8% { transform:translate(0,0) scale(1); } 55% { transform:translate(82px,-35px) scale(.86); } 83% { transform:translate(126px,-4px) scale(.78); } 100% { transform:translate(0,0) scale(1); } }
+    @keyframes shootArm { 0%,12%,100% { transform:rotate(-139deg); } 48%,70% { transform:rotate(-175deg); } }
+    @keyframes playerSway { 0%,100% { transform:translateY(0); } 55% { transform:translateY(-3px); } }
+    @media (max-width: 600px) { .hoops-scene { right:2px; bottom:8px; transform:scale(.66); } }
+    @media (max-height: 550px) { .hoops-scene { transform:scale(.65); } }
+
+    .ground { width: 275px; }
     }
 
     .ground {
@@ -780,6 +826,13 @@
     <div class="phrase" style="--x:38%;--bubble:#c9e8ff;--speed:18s;--delay:-16s;--drift:31px">ADHD</div>
     <div class="phrase" style="--x:56%;--bubble:#fff0b8;--speed:13s;--delay:-7s;--drift:-38px">Okay</div>
     <div class="shooting-star"></div>
+  </div>
+
+  <div class="hoops-scene" aria-hidden="true">
+    <div class="hoops-ground"></div><div class="hoop-pole"></div><div class="hoop-base"></div><div class="hoop-backboard"></div><div class="hoop-rim"></div><div class="hoop-net"></div>
+    <div class="court-dog"><span class="tail"></span><span class="body"></span><span class="head"><i class="ear"></i></span><span class="legs"></span></div>
+    <div class="hoops-player"><span class="player-hair"></span><span class="player-head"></span><span class="player-body"></span><span class="player-arm"></span><span class="player-arm shot"></span><span class="player-leg"><i class="player-shoe"></i></span><span class="player-leg back"><i class="player-shoe"></i></span></div>
+    <div class="basketball"></div>
   </div>
   <main>
     <h1>Ellen Is<br />Wanted!</h1>
