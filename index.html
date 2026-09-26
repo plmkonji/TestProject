@@ -642,7 +642,9 @@
     }
 
     .dog-leg.front { left: 36px; }
+    .dog-leg.front.rear { left: 61px; top: 88px; height: 34px; z-index: 1; }
     .dog-leg.back { right: 23px; }
+    .dog-leg.back.rear { right: 43px; top: 88px; height: 34px; z-index: 1; }
 
     .dog-paw {
       position: absolute;
@@ -741,7 +743,7 @@
     .player-leg { position:absolute; top:84px; left:34px; width:10px; height:58px; border-radius:9px; background:var(--ink); transform:rotate(8deg); }
     .player-leg.back { left:52px; transform:rotate(-9deg); }
     .player-shoe { position:absolute; bottom:-3px; left:-7px; width:25px; height:10px; border-radius:8px; background:#ff4f9a; }
-    .basketball { position:absolute; left:90px; top:48px; width:24px; height:24px; border:2px solid #713d22; border-radius:50%; background:#f18a35; animation:ballArc 1.5s ease-in-out infinite; }
+    .basketball { position:absolute; left:90px; top:48px; width:24px; height:24px; border:2px solid #713d22; border-radius:50%; background:#f18a35; animation:ballArc 2s cubic-bezier(.42,0,.58,1) infinite; }
     .basketball::before,.basketball::after { content:""; position:absolute; inset:0; border-radius:50%; }
     .basketball::before { border-left:2px solid #713d22; transform:rotate(35deg) scaleX(.55); }
     .basketball::after { border-top:2px solid #713d22; transform:rotate(55deg) scaleY(.55); }
@@ -751,7 +753,7 @@
     .court-dog .ear { position:absolute; left:-5px; top:0; width:10px; height:16px; border-radius:70%; background:#8b5937; transform:rotate(-25deg); }
     .court-dog .tail { position:absolute; right:-7px; top:14px; width:18px; height:7px; border-top:4px solid var(--ink); border-radius:50%; transform:rotate(-35deg); }
     .court-dog .legs { position:absolute; left:15px; top:28px; width:5px; height:13px; border-radius:4px; background:var(--ink); box-shadow:18px 0 var(--ink); }
-    @keyframes ballArc { 0%,8% { transform:translate(0,0) scale(1); } 55% { transform:translate(82px,-35px) scale(.86); } 83% { transform:translate(126px,-4px) scale(.78); } 100% { transform:translate(0,0) scale(1); } }
+    @keyframes ballArc { 0%,8% { transform:translate(0,0) scale(1); } 35% { transform:translate(62px,-53px) scale(.94); } 58% { transform:translate(113px,-37px) scale(.88); } 72% { transform:translate(139px,18px) scale(.82); } 83% { transform:translate(139px,49px) scale(.78); } 100% { transform:translate(0,0) scale(1); } }
     @keyframes shootArm { 0%,12%,100% { transform:rotate(-139deg); } 48%,70% { transform:rotate(-175deg); } }
     @keyframes playerSway { 0%,100% { transform:translateY(0); } 55% { transform:translateY(-3px); } }
     @media (max-width: 600px) { .hoops-scene { left:2px; top:8px; transform:scale(.58); } }
@@ -769,6 +771,9 @@
     .court-dog .collar { position:absolute; left:18px; top:34px; width:25px; height:6px; border:1px solid #4b3c58; border-radius:4px; background:#4b9ee8; z-index:3; }
     .court-dog .tag { position:absolute; left:28px; top:39px; width:7px; height:8px; border:1px solid #725b42; border-radius:50%; background:#ffd84d; z-index:4; }
     .court-dog .legs { left:21px; top:39px; width:7px; height:15px; border-radius:4px; background:#d59651; border:2px solid #4c3b31; box-shadow:19px 0 #d59651, 19px 0 0 2px #4c3b31; }
+    .court-dog .leg-extra { position:absolute; top:37px; width:7px; height:16px; border:2px solid #4c3b31; border-radius:4px; background:#d59651; z-index:0; }
+    .court-dog .leg-extra.one { left:31px; }
+    .court-dog .leg-extra.two { left:50px; }
     .court-dog .tail { right:-10px; top:17px; width:22px; height:10px; border-top:0; border-right:5px solid #6b462e; border-radius:50%; background:#e3ad66; transform:rotate(-28deg); transform-origin:left center; animation:tailWag .45s ease-in-out infinite alternate; }
     .court-dog .body::after { content:""; position:absolute; left:8px; bottom:-1px; width:20px; height:19px; border-radius:50%; background:rgba(255,238,207,.58); }
     .court-dog .head::after { content:""; position:absolute; right:-7px; bottom:1px; width:17px; height:12px; border-radius:50%; background:#f6e4c6; }
@@ -848,7 +853,7 @@
 
   <div class="hoops-scene" aria-hidden="true">
     <div class="hoops-ground"></div><div class="hoop-pole"></div><div class="hoop-base"></div><div class="hoop-backboard"></div><div class="hoop-rim"></div><div class="hoop-net"></div>
-    <div class="court-dog"><span class="tail"></span><span class="body"></span><span class="head"><i class="ear left"></i><i class="ear right"></i><i class="eye"></i></span><span class="muzzle"><i class="nose"></i></span><span class="collar"></span><span class="tag"></span><span class="tongue"></span><span class="legs"></span></div>
+    <div class="court-dog"><span class="tail"></span><span class="body"></span><span class="head"><i class="ear left"></i><i class="ear right"></i><i class="eye"></i></span><span class="muzzle"><i class="nose"></i></span><span class="collar"></span><span class="tag"></span><span class="tongue"></span><span class="legs"></span><span class="leg-extra one"></span><span class="leg-extra two"></span></div>
     <div class="hoops-player"><span class="player-hair"></span><span class="player-head"></span><span class="player-body"></span><span class="player-arm"></span><span class="player-arm shot"></span><span class="player-leg"><i class="player-shoe"></i></span><span class="player-leg back"><i class="player-shoe"></i></span></div>
     <div class="basketball"></div>
   </div>
@@ -887,8 +892,10 @@
         </div>
         <div class="dog-collar"></div>
         <div class="dog-tag"></div>
-        <div class="dog-leg front"><span class="dog-paw"></span></div>
+        <div class="dog-leg back rear"><span class="dog-paw"></span></div>
+        <div class="dog-leg front rear"><span class="dog-paw"></span></div>
         <div class="dog-leg back"><span class="dog-paw"></span></div>
+        <div class="dog-leg front"><span class="dog-paw"></span></div>
         <div class="dog-heart">💙</div>
       </div>
     </div>
