@@ -848,6 +848,11 @@
     @keyframes spookyDrift {to{transform:translateY(-22px) rotate(13deg)}}
     h1 {text-shadow:0 7px 0 #f47718,0 12px 0 #6b2c99,0 18px 24px #0008;}
     @media (prefers-reduced-motion:reduce){.halloween-decor span{animation:none}}
+
+    .ghost-game-link {position:relative;z-index:10;display:inline-block;margin:0 auto 12px;padding:10px 19px;color:#2d163d;background:#ffa047;border:3px solid #fff0bf;border-radius:999px;font-weight:800;text-decoration:none;box-shadow:0 5px 0 #462154;animation:gameWiggle 2s ease-in-out infinite}
+    .ghost-game-link:focus-visible {outline:3px solid white;outline-offset:3px}
+    @keyframes gameWiggle {50%{transform:translateY(-5px) rotate(-2deg)}}
+    @media(prefers-reduced-motion:reduce){.ghost-game-link{animation:none}}
   </style>
 </head>
 <body>
@@ -881,7 +886,7 @@
     <div class="hoops-player"><span class="player-hair"></span><span class="player-head"></span><span class="player-body"></span><span class="player-arm"></span><span class="player-arm shot"></span><span class="player-leg"><i class="player-shoe"></i></span><span class="player-leg back"><i class="player-shoe"></i></span></div>
     <div class="basketball"></div>
   </div>
-  <div class="halloween-decor" aria-hidden="true"><span>🦇</span><span>👻</span><span>🎃</span><span>🕸️</span><span>🦇</span></div>\n  <main>
+  <div class="halloween-decor" aria-hidden="true"><span>🦇</span><span>👻</span><span>🎃</span><span>🕸️</span><span>🦇</span></div>\n  <main>\n    <a class="ghost-game-link" href="ghost-pop.html">👻 Play Ghost Pop!</a>
     <h1>Ellen Is<br />Haunted! 🎃</h1>
     <div class="girl" role="img" aria-label="A cute stick figure girl waving">
       <div class="hair"></div>
