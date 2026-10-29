@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#ff5fa2" />
-  <title>Ellen Is Wanted!</title>
+  <meta name="theme-color" content="#170d29" />
+  <title>Ellen Is Haunted! 🎃</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&display=swap');
 
@@ -824,6 +824,30 @@
     @media (prefers-reduced-motion: reduce) {
       * { animation-duration: 1ms !important; animation-iteration-count: 1 !important; }
     }
+  
+    /* Halloween takeover: preserve the original animations and links */
+    :root { --pink:#ff821c; --purple:#7430a8; --yellow:#ffcf52; --ink:#271637; }
+    body { color:#fff1db; background:radial-gradient(circle at 78% 16%,#f9dba0 0 5%,transparent 5.5%),linear-gradient(155deg,#100b23 0%,#30204a 52%,#4d2540 100%); }
+    .sun { background:#ffe4a0;box-shadow:0 0 0 13px #ffe4a022,0 0 50px #ffe4a088; }
+    .cloud { background:#9a85b4aa; }
+    .rainbow { filter:hue-rotate(130deg) brightness(.8); }
+    .rainbow::after { content:"🎃 Tap for spooky pictures!";filter:none; }
+    .dress { background:linear-gradient(135deg,#f78219,#7a37a6); }
+    .dress::after { content:"🎃";position:absolute;top:38px;left:31px;font-size:30px; }
+    .hair::after { box-shadow:0 -4px 0 #281533; }
+    .dog::after { content:"👻 Tap for spooky Portland fun!"; }
+    .phrase { border-color:#ffad42;background:#382348;color:#ffe6b5; }
+    .heart,.dog-heart { filter:hue-rotate(100deg); }
+    .halloween-decor {position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:1;}
+    .halloween-decor span {position:absolute;font-size:clamp(28px,5vw,58px);animation:spookyDrift 7s ease-in-out infinite alternate;filter:drop-shadow(0 4px 8px #0008);}
+    .halloween-decor span:nth-child(1){top:7%;left:8%}
+    .halloween-decor span:nth-child(2){top:23%;right:8%;animation-delay:-2s}
+    .halloween-decor span:nth-child(3){bottom:12%;left:7%;animation-delay:-4s}
+    .halloween-decor span:nth-child(4){bottom:18%;right:7%;animation-delay:-1s}
+    .halloween-decor span:nth-child(5){top:4%;left:47%;animation-delay:-3s}
+    @keyframes spookyDrift {to{transform:translateY(-22px) rotate(13deg)}}
+    h1 {text-shadow:0 7px 0 #f47718,0 12px 0 #6b2c99,0 18px 24px #0008;}
+    @media (prefers-reduced-motion:reduce){.halloween-decor span{animation:none}}
   </style>
 </head>
 <body>
@@ -857,8 +881,8 @@
     <div class="hoops-player"><span class="player-hair"></span><span class="player-head"></span><span class="player-body"></span><span class="player-arm"></span><span class="player-arm shot"></span><span class="player-leg"><i class="player-shoe"></i></span><span class="player-leg back"><i class="player-shoe"></i></span></div>
     <div class="basketball"></div>
   </div>
-  <main>
-    <h1>Ellen Is<br />Wanted!</h1>
+  <div class="halloween-decor" aria-hidden="true"><span>🦇</span><span>👻</span><span>🎃</span><span>🕸️</span><span>🦇</span></div>\n  <main>
+    <h1>Ellen Is<br />Haunted! 🎃</h1>
     <div class="girl" role="img" aria-label="A cute stick figure girl waving">
       <div class="hair"></div>
       <div class="head">
@@ -902,7 +926,7 @@
     <div class="ground" aria-hidden="true"></div>
   </main>
   <script>
-    const colors = ["#ff4f9a", "#8d5cff", "#ffe46b", "#4dd9c0", "#4dabf7"];
+    const colors = ["#ff821c", "#7430a8", "#ffcf52", "#181023", "#e5a4ff"];
     function confettiBurst() {
       for (let i = 0; i < 18; i++) {
         const piece = document.createElement("i");
