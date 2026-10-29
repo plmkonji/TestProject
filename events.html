@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#5636a8" />
-  <title>Portland Fun Finder</title>
+  <meta name="theme-color" content="#1a102e" />
+  <title>Halloween Fun Finder 🎃 | Ellen</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&display=swap');
     :root { --ink:#30254b; --purple:#6f4bd8; --pink:#ff5b9d; --mint:#61d8bd; --yellow:#ffe27a; }
@@ -99,81 +99,159 @@
       .pdx { display:none; }
     }
     @media(prefers-reduced-motion:reduce) { * { animation:none!important; } }
+  
+    /* Halloween theme */
+    :root { --ink:#261639; --purple:#7432a3; --pink:#ff8927; --mint:#94d5bd; --yellow:#ffcc75; }
+    body { background:radial-gradient(circle at 87% 9%,#ffe2a5 0 4%,transparent 4.5%),linear-gradient(150deg,#130d25,#3c2355 55%,#5b2841);color:#ffedda; }
+    body::before { opacity:.18; }
+    .back {background:#f58225;}
+    .filters {background:#f8e9ff;color:#261639;}
+    .updated {background:#ffdc9a;color:#261639;}
+    .filter-status,.meta {color:#5c4170;}
+    .card {color:#261639;}
+    .card::after {opacity:.24;}
+    .note {background:#f5e6ff;color:#261639;}
+    h1 {text-shadow:0 7px 0 #f58225,0 12px 0 #7432a3;}
+    .subtitle {color:#ffdbb5;}
   </style>
 </head>
 <body>
-  <div class="pdx" aria-hidden="true">🌲🚲</div>
+  <div class="pdx" aria-hidden="true">🦇🎃</div>
   <div class="wrap">
     <a class="back" href="index.html">← Back to Ellen &amp; the pups</a>
     <header>
-      <h1>Portland<br>Fun Finder!</h1>
-      <p class="subtitle">A cheerful shortlist of things happening now and coming soon around Portland.</p>
-      <span class="updated">Updated September 20, 2026</span>
+      <h1>Spooky Portland<br>Fun Finder! 🎃</h1>
+      <p class="subtitle">Haunts, costumes, ghost stories and Halloween adventures around Portland.</p>
+      <span class="updated">Updated October 29, 2026</span>
     </header>
     <section class="filters" aria-label="Filter events by date">
       <p class="filter-title">📅 When do you want to have fun?</p>
       <div class="filter-row">
         <label class="date-field">Pick a date
-          <input id="eventDate" type="date" min="2026-09-19" max="2026-12-31" />
+          <input id="eventDate" type="date" min="2026-10-29" max="2026-11-07" />
         </label>
         <button class="filter-btn active" data-filter="all" style="--button:#fff">All events</button>
         <button class="filter-btn" data-filter="today" style="--button:#ffc8dc">Today</button>
         <button class="filter-btn" data-filter="week" style="--button:#bfeee4">Next 7 days</button>
-        <button class="filter-btn" data-filter="october" style="--button:#ffe3a1">October</button>
+        <button class="filter-btn" data-filter="october" style="--button:#ffe3a1">Halloween week</button>
       </div>
-      <p class="filter-status" id="filterStatus" aria-live="polite">Showing all events and live guides.</p>
+      <p class="filter-status" id="filterStatus" aria-live="polite">Showing Halloween events and attractions.</p>
     </section>
     <main class="grid">
-      <article class="card" data-start="2026-09-20" data-end="2026-09-20" style="--card:#ffe3a1" data-emoji="🏮">
-        <span class="tag">Happening tonight</span>
-        <h2>Asian Mid-Autumn &amp; Harvest Festival Gala</h2>
-        <div class="meta">September 20 · 7:00 PM · Portland’5</div>
-        <p>Lantern-season celebration and cultural gala in downtown Portland.</p>
-        <a class="go" href="https://www.portland5.com/events" target="_blank" rel="noopener">Event details →</a>
+      <article class="card" data-start="2026-10-29" data-end="2026-10-29" style="--card:#ffdfac" data-emoji="🎭">
+        <span class="tag">Tonight</span>
+        <h2>Tricks &amp; Treats at Echo Theater</h2>
+        <div class="meta">Thu Oct 29 · 5:30 PM · Echo Theater</div>
+        <p>All-ages Halloween party featuring costumes and performances.</p>
+        <a class="go" href="https://www.funpdx.com/portland-halloween-events" target="_blank" rel="noopener">Details &amp; tickets →</a>
       </article>
 
-      <article class="card" data-start="2026-09-19" data-end="2026-09-20" style="--card:#d8c8ff" data-emoji="🎻">
-        <span class="tag">Live performance</span>
-        <h2>Piazzolla &amp; Edna Vázquez</h2>
-        <div class="meta">September 19–20 · Portland’5</div>
-        <p>A vibrant performance option for a music-filled night out.</p>
-        <a class="go" href="https://www.portland5.com/events" target="_blank" rel="noopener">See Portland’5 events →</a>
+      <article class="card" data-start="2026-10-29" data-end="2026-10-31" style="--card:#d9c5fa" data-emoji="👻">
+        <span class="tag">Haunted house</span>
+        <h2>The Fear PDX</h2>
+        <div class="meta">Oct 29–31 · NE Glisan St</div>
+        <p>Five haunted houses, scare zones and mini haunts. Oct 29 7–10:30 PM; Oct 30–31 7 PM–midnight.</p>
+        <a class="go" href="https://www.fearpdx.com/" target="_blank" rel="noopener">Details &amp; tickets →</a>
       </article>
 
-      <article class="card" data-start="2026-10-04" data-end="2026-10-04" style="--card:#bfeee4" data-emoji="🏃">
-        <span class="tag">Coming soon</span>
-        <h2>Portland Marathon Weekend</h2>
-        <div class="meta">October 4 · Marathon, half marathon &amp; 10K</div>
-        <p>Run, volunteer, or just find a good spot to cheer as the races move through Portland.</p>
-        <a class="go" href="https://www.portlandmarathon.com/" target="_blank" rel="noopener">Official race site →</a>
+      <article class="card" data-start="2026-11-01" data-end="2026-11-02" style="--card:#bee2d9" data-emoji="👻">
+        <span class="tag">After Halloween</span>
+        <h2>The Fear PDX</h2>
+        <div class="meta">Nov 1–2 · NE Glisan St</div>
+        <p>More nights to get scared: Nov 1 6–10:30 PM; Nov 2 7–9:30 PM.</p>
+        <a class="go" href="https://www.fearpdx.com/" target="_blank" rel="noopener">Details &amp; tickets →</a>
       </article>
 
-      <article class="card" data-start="2026-10-01" data-end="2026-10-31" style="--card:#ffc8dc" data-emoji="🎃">
-        <span class="tag">October preview</span>
-        <h2>Spooky &amp; Cozy Fall Events</h2>
-        <div class="meta">October · Around Portland</div>
-        <p>Giant pumpkins, film events, corn mazes, haunted houses and peak Portland fall weirdness.</p>
-        <a class="go" href="https://www.travelportland.com/events/october/" target="_blank" rel="noopener">Explore October →</a>
+      <article class="card" data-start="2026-11-06" data-end="2026-11-07" style="--card:#f9c9d7" data-emoji="👻">
+        <span class="tag">Final weekend</span>
+        <h2>The Fear PDX</h2>
+        <div class="meta">Nov 6–7 · NE Glisan St</div>
+        <p>Last two listed nights of the 2026 haunt season, 7–9:30 PM.</p>
+        <a class="go" href="https://www.fearpdx.com/" target="_blank" rel="noopener">Details &amp; tickets →</a>
       </article>
 
-      <article class="card" data-start="2026-09-20" data-end="2026-12-31" data-live="true" style="--card:#c9eaff" data-emoji="✨">
-        <span class="tag">Live list</span>
-        <h2>What’s Happening Today</h2>
-        <div class="meta">Concerts, exhibits, tours &amp; pop-ups</div>
-        <p>Use Travel Portland’s continually updated list when you want something spontaneous.</p>
-        <a class="go" href="https://www.travelportland.com/events/things-to-do-in-portland-today/" target="_blank" rel="noopener">See today’s picks →</a>
+      <article class="card" data-start="2026-10-29" data-end="2026-11-01" style="--card:#ffdfac" data-emoji="🎢">
+        <span class="tag">Haunted amusement park</span>
+        <h2>Oaks Park ScareGrounds</h2>
+        <div class="meta">Oct 29–Nov 1 · Oaks Park</div>
+        <p>Scare park with haunted walkthroughs and rides. Select tickets and times from organizer.</p>
+        <a class="go" href="https://www.scaregroundspdx.com/" target="_blank" rel="noopener">Details &amp; tickets →</a>
       </article>
 
-      <article class="card" data-start="2026-09-20" data-end="2026-12-31" data-live="true" style="--card:#fff0aa" data-emoji="🎉">
-        <span class="tag">Plan ahead</span>
-        <h2>This Weekend in Portland</h2>
-        <div class="meta">Festivals, shows, markets &amp; more</div>
-        <p>A quick launchpad for whichever Portland weekend is coming up next.</p>
-        <a class="go" href="https://www.travelportland.com/events/things-to-do-in-portland-this-weekend/" target="_blank" rel="noopener">Browse the weekend →</a>
+      <article class="card" data-start="2026-10-30" data-end="2026-10-30" style="--card:#d9c5fa" data-emoji="🌽">
+        <span class="tag">Friday night</span>
+        <h2>Bella Organic Haunted Corn Maze</h2>
+        <div class="meta">Fri Oct 30 · Sauvie Island</div>
+        <p>The final scheduled haunted maze night for 2026. Tickets and operating times may change.</p>
+        <a class="go" href="https://bellaorganic.com/" target="_blank" rel="noopener">Details &amp; tickets →</a>
       </article>
-      <div class="empty" id="emptyState">Nothing is listed for that date yet — try another day! 🌲</div>
+
+      <article class="card" data-start="2026-10-30" data-end="2026-10-30" style="--card:#bee2d9" data-emoji="🍬">
+        <span class="tag">Free · Family</span>
+        <h2>Gateway Discovery Park Trunk or Treat</h2>
+        <div class="meta">Fri Oct 30 · 6:30–8:30 PM</div>
+        <p>Candy, games, art, prizes and a 7:30 PM costume parade.</p>
+        <a class="go" href="https://www.portland.gov/parks/fall" target="_blank" rel="noopener">Details &amp; tickets →</a>
+      </article>
+
+      <article class="card" data-start="2026-10-30" data-end="2026-10-30" style="--card:#f9c9d7" data-emoji="🛼">
+        <span class="tag">Family festival</span>
+        <h2>Mt. Scott Harvest Festival</h2>
+        <div class="meta">Fri Oct 30 · 5:30–8:30 PM</div>
+        <p>Skating, bounce house, games and prizes. Admission fees apply.</p>
+        <a class="go" href="https://www.portland.gov/parks/fall" target="_blank" rel="noopener">Details &amp; tickets →</a>
+      </article>
+
+      <article class="card" data-start="2026-10-30" data-end="2026-10-30" style="--card:#ffdfac" data-emoji="🎤">
+        <span class="tag">Halloween night out</span>
+        <h2>Scare-aoke at Ethos Music Center</h2>
+        <div class="meta">Fri Oct 30 · 7 PM</div>
+        <p>Free Halloween karaoke night.</p>
+        <a class="go" href="https://www.funpdx.com/portland-halloween-events" target="_blank" rel="noopener">Details &amp; tickets →</a>
+      </article>
+
+      <article class="card" data-start="2026-10-29" data-end="2026-10-31" style="--card:#d9c5fa" data-emoji="🎬">
+        <span class="tag">Cult classic</span>
+        <h2>Rocky Horror at Clinton Street Theater</h2>
+        <div class="meta">Oct 29–31 · Clinton Street Theater</div>
+        <p>Halloween-week screenings of The Rocky Horror Picture Show with a live shadowcast.</p>
+        <a class="go" href="https://cstpdx.com/" target="_blank" rel="noopener">Details &amp; tickets →</a>
+      </article>
+
+      <article class="card" data-start="2026-10-31" data-end="2026-10-31" style="--card:#bee2d9" data-emoji="🎉">
+        <span class="tag">Halloween Saturday</span>
+        <h2>Woodstock Spooktacular</h2>
+        <div class="meta">Sat Oct 31 · 3–6 PM · Woodstock</div>
+        <p>Free neighborhood Halloween afternoon celebration.</p>
+        <a class="go" href="https://www.stayportland.com/guide/portland-halloween-events" target="_blank" rel="noopener">Details &amp; tickets →</a>
+      </article>
+
+      <article class="card" data-start="2026-10-29" data-end="2026-10-31" style="--card:#f9c9d7" data-emoji="🎃">
+        <span class="tag">Fall outing</span>
+        <h2>Corn Maize at The Pumpkin Patch</h2>
+        <div class="meta">Through Oct 31 · Sauvie Island</div>
+        <p>An eight-acre corn maze for a daytime fall adventure.</p>
+        <a class="go" href="https://www.travelportland.com/events/halloween-haunted/" target="_blank" rel="noopener">Details &amp; tickets →</a>
+      </article>
+
+      <article class="card" data-start="2026-10-29" data-end="2026-10-31" style="--card:#ffdfac" data-emoji="📼">
+        <span class="tag">Free &amp; spooky</span>
+        <h2>Haunted Dead Media Video Rentals</h2>
+        <div class="meta">Through Oct 31 · 707 NE Fremont St</div>
+        <p>A quirky haunted video-rental-themed experience.</p>
+        <a class="go" href="https://www.funpdx.com/portland-halloween-events" target="_blank" rel="noopener">Details &amp; tickets →</a>
+      </article>
+
+      <article class="card" data-start="2026-10-29" data-end="2026-11-01" style="--card:#d9c5fa" data-emoji="🕯️">
+        <span class="tag">Find more</span>
+        <h2>Portland Halloween Guide</h2>
+        <div class="meta">Halloween weekend · Portland</div>
+        <p>Browse more costume parties, haunted attractions and events before making plans.</p>
+        <a class="go" href="https://www.travelportland.com/events/halloween-haunted/" target="_blank" rel="noopener">Details &amp; tickets →</a>
+      </article>
+      <div class="empty" id="emptyState">No listed events for this date — try another day! 🦇</div>
     </main>
-    <div class="note">Event details can change, so use each event’s link to confirm times, availability and tickets before heading out.</div>
+    <div class="note">Events and operating nights can change. Confirm the schedule and tickets on the linked organizer pages before heading out.</div>
   </div>
   <script>
     const cards = [...document.querySelectorAll(".card")];
@@ -218,7 +296,7 @@
       if (mode === "all") {
         cards.forEach(card => card.hidden = false);
         empty.classList.remove("show");
-        status.textContent = "Showing all events and live guides.";
+        status.textContent = "Showing Halloween events and attractions.";
         return;
       }
       const today = new Date();
@@ -230,7 +308,7 @@
         end.setDate(end.getDate() + 6);
         showRange(localISO(today), localISO(end), "Next 7 days");
       } else if (mode === "october") {
-        showRange("2026-10-01", "2026-10-31", "October 2026");
+        showRange("2026-10-29", "2026-11-01", "Halloween weekend");
       }
     }));
   </script>
