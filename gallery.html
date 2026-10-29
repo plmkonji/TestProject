@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#ff5f9e" />
-  <title>Our Fun Pictures</title>
+  <meta name="theme-color" content="#1a102d" />
+  <title>Spooky Memories 🎃 | Ellen</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&display=swap');
     :root { --ink:#36284f; --pink:#ff5f9e; --purple:#7956dc; --yellow:#ffe377; --mint:#66dfc4; }
@@ -71,15 +71,37 @@
     @keyframes sparkle { to { background-position:100px 200px; } }
     @media(max-width:760px) { .gallery { grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; } .photo { padding:7px 7px 35px; } .sticker { font-size:29px; } }
     @media(prefers-reduced-motion:reduce) { * { animation:none!important; } }
+  
+    /* Haunted photo album: original photos and lightbox preserved */
+    :root {--ink:#2d193e;--pink:#ff8b32;--purple:#823bb0;--yellow:#ffcd78;--mint:#9bd8bc}
+    body {color:#ffe9cf;background:radial-gradient(circle at 85% 12%,#ffda91 0 4%,transparent 4.5%),linear-gradient(145deg,#120c25,#39214e 60%,#5d2942)}
+    body::before {opacity:.2}
+    h1 {text-shadow:0 7px 0 #fa8e2d,0 12px 0 #823bb0}
+    .back {background:#f78827}
+    .photo {border-color:#e3b5fa;box-shadow:0 9px 0 #271333,0 18px 28px #0007}
+    .photo:nth-child(3n+1){--frame:#f5cfa5!important}
+    .photo:nth-child(3n+2){--frame:#d6b5ea!important}
+    .photo:nth-child(3n){--frame:#b5d9c7!important}
+    .photo figcaption {color:#2d193e}
+    .photo::after {content:"🕸️";position:absolute;left:-10px;top:-16px;font-size:27px;pointer-events:none}
+    .spooky-decor {position:fixed;inset:0;overflow:hidden;pointer-events:none}
+    .spooky-decor span {position:absolute;font-size:clamp(30px,6vw,58px);opacity:.72;animation:ghostDrift 6s ease-in-out infinite alternate}
+    .spooky-decor span:nth-child(1){top:12%;left:4%}
+    .spooky-decor span:nth-child(2){top:22%;right:3%;animation-delay:-2s}
+    .spooky-decor span:nth-child(3){bottom:10%;left:5%;animation-delay:-4s}
+    .spooky-decor span:nth-child(4){bottom:20%;right:4%;animation-delay:-1s}
+    @keyframes ghostDrift {to{transform:translateY(-22px) rotate(12deg)}}
+    .game-link {display:inline-block;margin-top:15px;padding:10px 20px;border-radius:99px;background:#ff963e;color:#261435;text-decoration:none;font-weight:800;border:3px solid #ffe1a2;box-shadow:0 4px 0 #261435}
+    @media(prefers-reduced-motion:reduce){.spooky-decor span{animation:none}}
   </style>
 </head>
 <body>
-  <div class="wrap">
+  <div class="spooky-decor" aria-hidden="true"><span>🦇</span><span>👻</span><span>🎃</span><span>🕷️</span></div>\n  <div class="wrap">
     <a class="back" href="index.html">← Back to Ellen &amp; the pups</a>
     <header>
-      <h1>Fun<br>Pictures!</h1>
-      <p class="subtitle">Adventures, ridiculous selfies, sunshine, snow, and a whole lot of good memories. Tap any picture to make it big!</p>
-    </header>
+      <h1>Spooky<br>Memories! 🎃</h1>
+      <p class="subtitle">Our favorite memories, with a little Halloween magic! Tap a photo to see it full-size.</p>
+      <a class="game-link" href="ghost-pop.html">👻 Play Ghost Pop!</a>\n    </header>
     <main class="gallery">
       <figure class="photo" tabindex="0" style="--frame:#ffc9df;--tilt:-2deg"><span class="sticker">🎰</span><img src="images/gallery/01-IMG_7712.jpg" alt="Nick and Ellen taking a playful nighttime selfie in Las Vegas"><figcaption>Vegas energy ✨</figcaption></figure>
       <figure class="photo" tabindex="0" style="--frame:#ffe699;--tilt:2deg"><span class="sticker">🌼</span><img src="images/gallery/02-IMG_5483.jpg" alt="Nick and Ellen laughing together in a flower garden"><figcaption>Garden party laughs</figcaption></figure>
