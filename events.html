@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#1a102e" />
-  <title>Halloween Fun Finder 🎃 | Ellen</title>
+  <meta name="theme-color" content="#e8f8f1" />
+  <title>Feel Better Adventures 🌷 | Ellen</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&display=swap');
     :root { --ink:#30254b; --purple:#6f4bd8; --pink:#ff5b9d; --mint:#61d8bd; --yellow:#ffe27a; }
@@ -113,16 +113,31 @@
     .note {background:#f5e6ff;color:#261639;}
     h1 {text-shadow:0 7px 0 #f58225,0 12px 0 #7432a3;}
     .subtitle {color:#ffdbb5;}
-  </style>
+  
+/* Get Well Soon, Ellen — November 2026 */
+:root {--ink:#35536a!important;--pink:#ff91b8!important;--purple:#8d8ce4!important;--yellow:#ffe7a1!important;--mint:#a5ead6!important;}
+body {color:#35536a!important;background:radial-gradient(circle at 12% 12%,#fff3bb 0 5%,transparent 5.5%),radial-gradient(circle at 88% 15%,#ffd9e8 0 7%,transparent 7.5%),linear-gradient(145deg,#fff9f8,#e8f8f1 55%,#e4eeff)!important;}
+h1 {color:#fff!important;text-shadow:0 6px 0 #ff91b8,0 11px 0 #8d8ce4,0 16px 24px #b8d3d9!important;}
+.halloween-decor,.spooky-decor,.ghost-game-link,.game-link {display:none!important;}
+.back {background:#8d8ce4!important;color:#fff!important;}
+.subtitle {color:#43657a!important;}
+.getwell-note {position:relative;z-index:12;margin:12px auto;padding:10px 17px;max-width:460px;border-radius:22px;border:3px solid #8d8ce4;background:#ffffffed;color:#43657a;font-weight:800;text-align:center;box-shadow:0 5px 0 #d7caef;}
+.getwell-nav {position:relative;z-index:20;display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin:15px auto;}
+.getwell-nav a {display:inline-block;background:#fff;border:3px solid #8d8ce4;border-radius:999px;color:#35536a;text-decoration:none;padding:8px 14px;font-weight:800;box-shadow:0 4px 0 #cbd7e8;}
+.getwell-nav a:focus-visible {outline:3px solid #ff82a7;outline-offset:3px;}
+@media(prefers-reduced-motion:reduce){.sparkles,.floater,.phrase,.balloon{animation:none!important;}}
+
+.filters{background:#ffffffeb!important;color:#35536a!important}.updated{background:#fff3bb!important;color:#35536a!important}.card{color:#35536a!important}.note{background:#fff!important;color:#35536a!important}.filter-status,.meta{color:#53758b!important}
+</style>
 </head>
 <body>
-  <div class="pdx" aria-hidden="true">🦇🎃</div>
+  <div class="pdx" aria-hidden="true">🌷💗</div>
   <div class="wrap">
     <a class="back" href="index.html">← Back to Ellen &amp; the pups</a>
     <header>
-      <h1>Spooky Portland<br>Fun Finder! 🎃</h1>
-      <p class="subtitle">Haunts, costumes, ghost stories and Halloween adventures around Portland.</p>
-      <span class="updated">Updated October 29, 2026</span>
+      <h1>Little Joys &amp;<br>Fun Plans! 🌼</h1>
+      <p class="subtitle">A little sunshine and something fun to look forward to. Get well soon, Ellen! 💕</p>
+      <span class="updated">Sending hugs — November 2026</span>
     </header>
     <section class="filters" aria-label="Filter events by date">
       <p class="filter-title">📅 When do you want to have fun?</p>
@@ -133,9 +148,9 @@
         <button class="filter-btn active" data-filter="all" style="--button:#fff">All events</button>
         <button class="filter-btn" data-filter="today" style="--button:#ffc8dc">Today</button>
         <button class="filter-btn" data-filter="week" style="--button:#bfeee4">Next 7 days</button>
-        <button class="filter-btn" data-filter="october" style="--button:#ffe3a1">Halloween week</button>
+        <button class="filter-btn" data-filter="october" style="--button:#ffe3a1">Past events</button>
       </div>
-      <p class="filter-status" id="filterStatus" aria-live="polite">Showing Halloween events and attractions.</p>
+      <p class="filter-status" id="filterStatus" aria-live="polite">Browse fun plans and past events.</p>
     </section>
     <main class="grid">
       <article class="card" data-start="2026-10-29" data-end="2026-10-29" style="--card:#ffdfac" data-emoji="🎭">
@@ -296,7 +311,7 @@
       if (mode === "all") {
         cards.forEach(card => card.hidden = false);
         empty.classList.remove("show");
-        status.textContent = "Showing Halloween events and attractions.";
+        status.textContent = "Browse fun plans and past events.";
         return;
       }
       const today = new Date();
