@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#170d29" />
-  <title>Ellen Is Haunted! 🎃</title>
+  <meta name="theme-color" content="#e8f8f1" />
+  <title>Get Well Soon, Ellen! 💐</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&display=swap');
 
@@ -853,7 +853,22 @@
     .ghost-game-link:focus-visible {outline:3px solid white;outline-offset:3px}
     @keyframes gameWiggle {50%{transform:translateY(-5px) rotate(-2deg)}}
     @media(prefers-reduced-motion:reduce){.ghost-game-link{animation:none}}
-  </style>
+  
+/* Get Well Soon, Ellen — November 2026 */
+:root {--ink:#35536a!important;--pink:#ff91b8!important;--purple:#8d8ce4!important;--yellow:#ffe7a1!important;--mint:#a5ead6!important;}
+body {color:#35536a!important;background:radial-gradient(circle at 12% 12%,#fff3bb 0 5%,transparent 5.5%),radial-gradient(circle at 88% 15%,#ffd9e8 0 7%,transparent 7.5%),linear-gradient(145deg,#fff9f8,#e8f8f1 55%,#e4eeff)!important;}
+h1 {color:#fff!important;text-shadow:0 6px 0 #ff91b8,0 11px 0 #8d8ce4,0 16px 24px #b8d3d9!important;}
+.halloween-decor,.spooky-decor,.ghost-game-link,.game-link {display:none!important;}
+.back {background:#8d8ce4!important;color:#fff!important;}
+.subtitle {color:#43657a!important;}
+.getwell-note {position:relative;z-index:12;margin:12px auto;padding:10px 17px;max-width:460px;border-radius:22px;border:3px solid #8d8ce4;background:#ffffffed;color:#43657a;font-weight:800;text-align:center;box-shadow:0 5px 0 #d7caef;}
+.getwell-nav {position:relative;z-index:20;display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin:15px auto;}
+.getwell-nav a {display:inline-block;background:#fff;border:3px solid #8d8ce4;border-radius:999px;color:#35536a;text-decoration:none;padding:8px 14px;font-weight:800;box-shadow:0 4px 0 #cbd7e8;}
+.getwell-nav a:focus-visible {outline:3px solid #ff82a7;outline-offset:3px;}
+@media(prefers-reduced-motion:reduce){.sparkles,.floater,.phrase,.balloon{animation:none!important;}}
+
+.rainbow::after{content:"Tap for happy memories!";}
+</style>
 </head>
 <body>
   <div class="sparkles" aria-hidden="true"></div>
@@ -871,12 +886,12 @@
     <div class="floater" style="--x:34%;--size:27px;--speed:13s;--delay:-9s">⭐</div>
     <div class="floater" style="--x:64%;--size:31px;--speed:12s;--delay:-2s">🌸</div>
     <div class="floater" style="--x:91%;--size:34px;--speed:15s;--delay:-11s">🦋</div>
-    <div class="phrase" style="--x:5%;--bubble:#ffc9df;--speed:14s;--delay:-2s;--drift:28px">Nickinor</div>
-    <div class="phrase" style="--x:68%;--bubble:#ffe898;--speed:17s;--delay:-9s;--drift:-34px">Tucky man</div>
-    <div class="phrase" style="--x:13%;--bubble:#bceee7;--speed:19s;--delay:-13s;--drift:46px">Baby lock them doors</div>
-    <div class="phrase" style="--x:76%;--bubble:#d7c8ff;--speed:15s;--delay:-5s;--drift:-22px">Autism</div>
-    <div class="phrase" style="--x:38%;--bubble:#c9e8ff;--speed:18s;--delay:-16s;--drift:31px">ADHD</div>
-    <div class="phrase" style="--x:56%;--bubble:#fff0b8;--speed:13s;--delay:-7s;--drift:-38px">Okay</div>
+    <div class="phrase" style="--x:5%;--bubble:#ffc9df;--speed:14s;--delay:-2s;--drift:28px">You got this! 💗</div>
+    <div class="phrase" style="--x:68%;--bubble:#ffe898;--speed:17s;--delay:-9s;--drift:-34px">Rest up, Ellen 🌷</div>
+    <div class="phrase" style="--x:13%;--bubble:#bceee7;--speed:19s;--delay:-13s;--drift:46px">Sending hugs 🫶</div>
+    <div class="phrase" style="--x:76%;--bubble:#d7c8ff;--speed:15s;--delay:-5s;--drift:-22px">Feel better soon!</div>
+    <div class="phrase" style="--x:38%;--bubble:#c9e8ff;--speed:18s;--delay:-16s;--drift:31px">Puppy cuddles 🐶</div>
+    <div class="phrase" style="--x:56%;--bubble:#fff0b8;--speed:13s;--delay:-7s;--drift:-38px">You are loved 💕</div>
     <div class="shooting-star"></div>
   </div>
 
@@ -886,8 +901,10 @@
     <div class="hoops-player"><span class="player-hair"></span><span class="player-head"></span><span class="player-body"></span><span class="player-arm"></span><span class="player-arm shot"></span><span class="player-leg"><i class="player-shoe"></i></span><span class="player-leg back"><i class="player-shoe"></i></span></div>
     <div class="basketball"></div>
   </div>
-  <div class="halloween-decor" aria-hidden="true"><span>🦇</span><span>👻</span><span>🎃</span><span>🕸️</span><span>🦇</span></div>\n  <main>\n    <a class="ghost-game-link" href="ghost-pop.html">👻 Play Ghost Pop!</a>
-    <h1>Ellen Is<br />Haunted! 🎃</h1>
+  <main>
+    <nav class="getwell-nav" aria-label="Explore Ellen's pages"><a href="events.html">🌷 Fun plans</a><a href="gallery.html">💗 Happy memories</a></nav>
+    <h1>Get Well<br />Soon, Ellen! 💐</h1>
+    <p class="getwell-note">💖 Sending you sunshine, puppy cuddles, cozy blankets & a million hugs. Feel better soon! 🥰</p>
     <div class="girl" role="img" aria-label="A cute stick figure girl waving">
       <div class="hair"></div>
       <div class="head">
@@ -931,7 +948,7 @@
     <div class="ground" aria-hidden="true"></div>
   </main>
   <script>
-    const colors = ["#ff821c", "#7430a8", "#ffcf52", "#181023", "#e5a4ff"];
+    const colors = ["#ff91b8", "#8d8ce4", "#ffe7a1", "#a5ead6", "#bde7ff"];
     function confettiBurst() {
       for (let i = 0; i < 18; i++) {
         const piece = document.createElement("i");
